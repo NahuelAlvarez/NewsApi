@@ -20,6 +20,7 @@ namespace NewsApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<INewsServices, NewsServices>();
+
             services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
             services.AddSwaggerGen(c =>
@@ -35,7 +36,8 @@ namespace NewsApi
                                     "http://localhost:26163",
                                     "https://localhost:5001",
                                     "http://localhost:5000",
-                                    "http://localhost:3000")
+                                    "http://localhost:3000",
+                                    "https://newsproyectfrontend.azurewebsites.net/")
                                         .AllowAnyMethod()
                                         .AllowAnyHeader();
                             });
