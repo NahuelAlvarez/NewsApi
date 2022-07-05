@@ -20,6 +20,7 @@ namespace NewsApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<INewsServices, NewsServices>();
+
             services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
             services.AddSwaggerGen(c =>

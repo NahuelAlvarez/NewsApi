@@ -36,7 +36,7 @@ namespace NewsApi.Services
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, _baseUrl + "everything" + $"?q=" +
                 $"{keywords}&from={dateFrom.ToString("yyyy-mm-dd")}&to={dateTo.ToString("yyyy-mm-dd")}&sortBy=popularity" +
-                $"&page ={page} & pageSize ={pageSize}");
+                $"&page ={page}&pageSize={pageSize}");
             var httpResponse = await _httpClient.SendAsync(httpRequest);
 
             var json = await httpResponse.Content?.ReadAsStringAsync();
@@ -60,7 +60,7 @@ namespace NewsApi.Services
             var newsResponse = new NewsResponse();
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, _baseUrl + "top-headlines" + $"?country=" +
-                $"{country}&page ={page} & pageSize ={pageSize}");
+                $"{country}&page={page}&pageSize={pageSize}");
             var httpResponse = await _httpClient.SendAsync(httpRequest);
 
             var json = await httpResponse.Content?.ReadAsStringAsync();
