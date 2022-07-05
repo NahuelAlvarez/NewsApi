@@ -23,10 +23,12 @@ namespace NewsApi
 
             services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+           
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NewsApi", Version = "v1" });
             });
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "MyPolicy",
