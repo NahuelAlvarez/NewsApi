@@ -100,7 +100,7 @@
                 "apiRevision": "1",
                 "description": null,
                 "subscriptionRequired": true,
-                "serviceUrl": null,
+                "serviceUrl": "https://newsapi.azurewebsites.net",
                 "path": "",
                 "protocols": [
                   "https"
