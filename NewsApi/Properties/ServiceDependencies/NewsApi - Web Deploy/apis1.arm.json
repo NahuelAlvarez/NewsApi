@@ -82,6 +82,7 @@
                 },
                 "virtualNetworkType": "None",
                 "certificates": null,
+                "enableClientCertificate": false,
                 "apiVersionConstraint": {
                   "minApiVersion": null
                 }
@@ -99,10 +100,11 @@
                 "displayName": "NewsApi",
                 "apiRevision": "1",
                 "description": null,
-                "subscriptionRequired": true,
+                "subscriptionRequired": false,
                 "serviceUrl": "https://newsapi.azurewebsites.net",
                 "path": "",
                 "protocols": [
+                  "http",
                   "https"
                 ],
                 "authenticationSettings": {

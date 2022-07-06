@@ -19,22 +19,23 @@ namespace NewsApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: "MyPolicy",
-                            policy =>
-                            {
-                                policy.WithOrigins("https://newsapiapi.azure-api.net",
-                                    "http://localhost:26163",
-                                    "https://localhost:5001",
-                                    "http://localhost:5000",
-                                    "http://localhost:3000",
-                                    "https://newsproyectfrontend.azurewebsites.net/")
-                                        .AllowAnyMethod()
-                                        .AllowAnyHeader();
-                            });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(name: "MyPolicy",
+            //                policy =>
+            //                {
+            //                    policy.WithOrigins("https://newsapiapi.azure-api.net",
+            //                        "http://localhost:26163",
+            //                        "https://localhost:5001",
+            //                        "http://localhost:5000",
+            //                        "http://localhost:3000",
+            //                        "https://newsproyectfrontend.azurewebsites.net/")
+            //                            .AllowAnyMethod()
+            //                            .AllowAnyHeader();
+            //                });
+            //});
 
             services.AddScoped<INewsServices, NewsServices>();
 
@@ -57,7 +58,16 @@ namespace NewsApi
                 app.UseDeveloperExceptionPage();
                
             }
-            app.UseCors("MyPolicy");
+            app.UseCors(
+                options => options.WithOrigins("https://newsapiapi.azure-api.net",
+                                        "http://example.com",
+                                        "http://localhost:26163",
+                                        "https://localhost:5001",
+                                        "http://localhost:5000",
+                                        "http://localhost:3000",
+                                        "https://newsproyectfrontend.azurewebsites.net/")
+                                         .AllowAnyOrigin().AllowAnyHeader().AllowCredentials().AllowAnyMethod()
+            );
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NewsApi v1"));

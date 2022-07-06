@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace NewsApi.Controllers
 {
-    [EnableCors("MyPolicy")]
+    //[EnableCors("MyPolicy")]
     [Route("api/")]
     [ApiController]
     public class NewsController : ControllerBase
